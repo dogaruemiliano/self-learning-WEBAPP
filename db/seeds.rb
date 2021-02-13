@@ -1,7 +1,74 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+puts "Destroying all models"
+Test.destroy_all
+puts "Destroyed Tests"
+Question.destroy_all
+puts "Destroyed Questions"
+User.destroy_all
+puts "Destroyed Users"
+puts "Destroyed all models"
+
+puts "Creating users"
+first_user = User.create(email: "dogaru@gmail.com", password: "123456")
+puts "Created users"
+
+puts "Creating tests"
+histologie = Test.create(name: "Histologie", user: first_user)
+biologie = Test.create(name: "Biologie", user: first_user)
+chimie = Test.create(name: "Chimie", user: first_user)
+puts "Created tests"
+
+puts "Creating questions"
+Question.create(
+  question: "Intrebare intrebatoare1?",
+  correct_answer: "Raspunsul corect",
+  answered: false,
+  test: histologie
+)
+Question.create(
+  question: "Intrebare intrebatoare2?",
+  correct_answer: "Raspunsul corect",
+  answered: false,
+  test: histologie
+)
+Question.create(
+  question: "Intrebare intrebatoare3?",
+  correct_answer: "Raspunsul corect",
+  answered: false,
+  test: histologie
+)
+Question.create(
+  question: "Intrebare intrebatoare4?",
+  correct_answer: "Raspunsul corect",
+  answered: true,
+  test: histologie
+)
+Question.create(
+  question: "Intrebare intrebatoare1?",
+  correct_answer: "Raspunsul corect",
+  answered: false,
+  test: biologie
+)
+Question.create(
+  question: "Intrebare intrebatoare2?",
+  correct_answer: "Raspunsul corect",
+  answered: false,
+  test: biologie
+)
+Question.create(
+  question: "Intrebare intrebatoare3?",
+  correct_answer: "Raspunsul corect",
+  answered: false,
+  test: biologie
+)
+Question.create(
+  question: "Intrebare intrebatoare1?",
+  correct_answer: "Raspunsul corect",
+  answered: false,
+  test: chimie
+)
+Question.create(
+  question: "Intrebare intrebatoare2?",
+  correct_answer: "Raspunsul corect",
+  answered: true,
+  test: chimie
+)
